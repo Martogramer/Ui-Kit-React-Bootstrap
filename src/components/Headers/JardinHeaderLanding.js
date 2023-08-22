@@ -23,18 +23,18 @@ function LandingPageHeader() {
         <div
           className="page-header-image"
           style={{
-            backgroundImage: "url(" + require("assets/img/bg6.jpg") + ")"
+            backgroundImage: "url(" + require("assets/photo-1531297484001-80022131f5a1.avif") + ")"
           }}
           ref={pageHeader}
         ></div>
         <div className="content-center">
           <Container>
-            <h1 className="title">Jardín Botánico</h1>
+            <h1 className="title">AGOSTO 30% OFF</h1>
             <div className="text-center">
               <Button
                 className="btn-icon btn-round"
                 color="info"
-                href="#pablo"
+                href="#"
                 onClick={(e) => e.preventDefault()}
               >
                 <i className="fab fa-facebook-square"></i>
@@ -42,7 +42,7 @@ function LandingPageHeader() {
               <Button
                 className="btn-icon btn-round"
                 color="info"
-                href="#pablo"
+                href="#"
                 onClick={(e) => e.preventDefault()}
               >
                 <i className="fab fa-twitter"></i>
@@ -50,7 +50,7 @@ function LandingPageHeader() {
               <Button
                 className="btn-icon btn-round"
                 color="info"
-                href="#pablo"
+                href="#"
                 onClick={(e) => e.preventDefault()}
               >
                 <i className="fab fa-google-plus"></i>

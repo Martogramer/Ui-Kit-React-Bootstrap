@@ -1,106 +1,71 @@
-import React from "react";
-import {
-  Container,
-  Row,
-  Col
-} from "reactstrap";
-import JardinNavbar from "components/Navbars/JardinNavbar.js";
+import React, { useState, useEffect } from "react";
+import { Container, Row, Col } from "reactstrap";
 import JardinHeaderLanding from "components/Headers/JardinHeaderLanding.js";
+import FormularioContacto from "../index-sections/FormularioContacto";
 import JardinDefaultFooter from "components/Footers/JardinDefaultFooter.js";
-import FormularioContacto from "../index-sections/FormularioContacto"
+import CardSection from "components/Cards/CardSection";
+import productos from "mocks/productos";
 
 function LandingPage() {
-  const [firstFocus, setFirstFocus] = React.useState(false);
-  const [lastFocus, setLastFocus] = React.useState(false);
-  React.useEffect(() => {
+  useEffect(() => {
     document.body.classList.add("landing-page");
     document.body.classList.add("sidebar-collapse");
     document.documentElement.classList.remove("nav-open");
     window.scrollTo(0, 0);
     document.body.scrollTop = 0;
-    return function cleanup() {
+    return () => {
       document.body.classList.remove("landing-page");
       document.body.classList.remove("sidebar-collapse");
     };
   }, []);
+
+  const [cartItems, setCartItems] = useState([]);
+  const [cartVisible, setCartVisible] = useState(false);
+
+  const addToCart = (product) => {
+    setCartItems((prevCart) => [...prevCart, product]);
+  };
+
+  const removeFromCart = (productId) => {
+    setCartItems((prevCart) => prevCart.filter((item) => item.id !== productId));
+  };
+
+  const openCart = () => {
+    setCartVisible(true);
+  };
+
+  const closeCart = () => {
+    setCartVisible(false);
+  };
+
   return (
     <>
-      <JardinNavbar />
       <div className="wrapper">
         <JardinHeaderLanding />
         <div className="section section-about-us">
           <Container>
             <Row>
               <Col className="ml-auto mr-auto text-center" md="8">
-                <h2 className="title">Quiénes somos?</h2>
-                <h5 className="description">
-                  According to the National Oceanic and Atmospheric
-                  Administration, Ted, Scambos, NSIDClead scentist, puts the
-                  potentially record low maximum sea ice extent tihs year down
-                  to low ice extent in the Pacific and a late drop in ice extent
-                  in the Barents Sea.
-                </h5>
+                <h2 className="title">Productos</h2>
+                <h5 className="description">filtra.</h5>
               </Col>
             </Row>
             <div className="separator separator-primary"></div>
-            <div className="section-story-overview">
-              <Row>
-                <Col md="6">
-                  <div
-                    className="image-container image-left"
-                    style={{
-                      backgroundImage:
-                        "url(" + require("assets/img/login.jpg") + ")"
-                    }}
-                  >
-                    <p className="blockquote blockquote-info">
-                      "Over the span of the satellite record, Arctic sea ice has
-                      been declining significantly, while sea ice in the
-                      Antarctichas increased very slightly" <br></br>
-                      <br></br>
-                      <small>-NOAA</small>
-                    </p>
-                  </div>
-                  <div
-                    className="image-container"
-                    style={{
-                      backgroundImage:
-                        "url(" + require("assets/img/bg3.jpg") + ")"
-                    }}
-                  ></div>
-                </Col>
-                <Col md="5">
-                  <div
-                    className="image-container image-right"
-                    style={{
-                      backgroundImage:
-                        "url(" + require("assets/img/bg1.jpg") + ")"
-                    }}
-                  ></div>
-                  <h3>
-                    So what does the new record for the lowest level of winter
-                    ice actually mean
-                  </h3>
-                  <p>
-                    The Arctic Ocean freezes every winter and much of the
-                    sea-ice then thaws every summer, and that process will
-                    continue whatever happens with climate change. Even if the
-                    Arctic continues to be one of the fastest-warming regions of
-                    the world, it will always be plunged into bitterly cold
-                    polar dark every winter. 
-                  </p>
-                  <p>
-                    For a start, it does not automatically follow that a record
-                    amount of ice will melt this summer.
-                  </p>
-                  <p>
-                    The Arctic Ocean freezes every winter and much of the
-                    sea-ice then thaws every summer, and that process will
-                    continue whatever happens with climate change.
-                  </p>
-                </Col>
-              </Row>
-            </div>
+              <Container>
+                <Row>
+                  {productos?.map((producto) => (
+                    <Col key={producto.id} md="4">
+                      <CardSection
+                        imageUrl={producto.image}
+                        description={producto.description}
+                        offer={producto.discount}
+                        price={producto.price}
+                        addToCart={() => addToCart(producto)}
+                      />
+                    </Col>
+                  ))}
+                </Row>
+              </Container>
           </Container>
         </div>
         <FormularioContacto />
@@ -109,6 +74,5 @@ function LandingPage() {
     </>
   );
 }
-
 
 export default LandingPage;

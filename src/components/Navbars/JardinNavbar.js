@@ -52,13 +52,13 @@ function IndexNavbar() {
         <Container>
           <div className="navbar-translate">
             <NavbarBrand
-              href="/index"
+              href="/"
               id="navbar-brand"
             >
-              JardínBotánico
+              Tu Tienda Online
             </NavbarBrand>
             <UncontrolledTooltip target="#navbar-brand">
-              Conectá con nosotros
+              Ganá presencia en la web!
             </UncontrolledTooltip>
             <button
               className="navbar-toggler navbar-toggler"
@@ -82,15 +82,10 @@ function IndexNavbar() {
             <Nav navbar>
               <NavItem>
                 <NavLink
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document
-                      .getElementById("download-section")
-                      .scrollIntoView();
-                  }}
+                  href="#contacto"
+                  
                 >
-                  {/* <i className="now-ui-icons arrows-1_cloud-download-93"></i> */}
+                  <i className="now-ui-icons arrows-1_cloud-download-93"></i>
                   <p>Contacto</p>
                 </NavLink>
               </NavItem>
@@ -98,28 +93,25 @@ function IndexNavbar() {
                 <DropdownToggle
                   caret
                   color="default"
-                  href="#pablo"
+                  href="#"
                   nav
                   onClick={(e) => e.preventDefault()}
                 >
                   <i className="now-ui-icons design_app mr-1"></i>
-                  <p>Nosotros</p>
+                  <p>Productos</p>
                 </DropdownToggle>
                 <DropdownMenu>
-                  <DropdownItem to="/landing-page" tag={Link}>
-                    {/* <i className="now-ui-icons business_chart-pie-36 mr-1"></i> */}
-                    Acerca de
+                  <DropdownItem to="/" tag={Link}>
+                    Software
                   </DropdownItem>
-                  <DropdownItem to="/index" tag={Link}>
-                    <i className="now-ui-icons business_chart-pie-36 mr-1"></i>
-                    Plantines
+                  <DropdownItem to="/" tag={Link}>
+                    Diseño
                   </DropdownItem>
                   <DropdownItem
-                    href="/index"
+                    to="/"
                     target="_blank"
                   >
-                    <i className="now-ui-icons design_bullet-list-67 mr-1"></i>
-                    Fotos
+                    CM
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Container, Row, Col, UncontrolledTooltip } from "reactstrap";
 
-function Download() {
+function NosotrosHome() {
   return (
     <>
       <div
@@ -40,9 +40,9 @@ function Download() {
             </Col>
           </Row>
           <br></br>
-          {/* <br></br>
           <br></br>
-          <Row className="text-center mt-5">
+          <br></br>
+          {/* <Row className="text-center mt-5">
             <Col className="ml-auto mr-auto" md="8">
               <h2>Want more?</h2>
               <h5 className="description">
@@ -70,12 +70,12 @@ function Download() {
                 Upgrade to PRO
               </Button>
             </Col>
-          </Row>
-          <br></br> */}
+          </Row> */}
+          <br></br>
           <br></br>
           <Row className="justify-content-md-center sharing-area text-center">
             <Col className="text-center" lg="8" md="12">
-              <h3>Gracias por confiar en nosotros!</h3>
+              <h3>Seguinos en las redes!</h3>
             </Col>
             <Col className="text-center" lg="8" md="12">
               <Button
@@ -89,7 +89,7 @@ function Download() {
                 <i className="fab fa-twitter"></i>
               </Button>
               <UncontrolledTooltip delay={0} target="tooltip86114138">
-                Follow us
+                Seguinos en twitter
               </UncontrolledTooltip>
               <Button
                 className="btn-neutral btn-icon btn-round"
@@ -102,7 +102,7 @@ function Download() {
                 <i className="fab fa-facebook-square"></i>
               </Button>
               <UncontrolledTooltip delay={0} target="tooltip735272548">
-                Like us
+                Seguinos en facebook
               </UncontrolledTooltip>
               <Button
                 className="btn-neutral btn-icon btn-round"
@@ -115,7 +115,7 @@ function Download() {
                 <i className="fab fa-linkedin"></i>
               </Button>
               <UncontrolledTooltip delay={0} target="tooltip647117716">
-                Follow us
+                Seguinos en instagram
               </UncontrolledTooltip>
             </Col>
           </Row>
@@ -125,4 +125,4 @@ function Download() {
   );
 }
 
-export default Download;
+export default NosotrosHome;

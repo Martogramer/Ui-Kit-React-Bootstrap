@@ -19,9 +19,9 @@ function SignUp() {
   return (
     <>
       <div
-        className="section section-signup"
+        className="section section-signup backcard"
         style={{
-          backgroundImage: "url(" + require("assets/img/bg11.jpg") + ")",
+          backgroudColor: 'gray',
           backgroundSize: "cover",
           backgroundPosition: "top center",
           minHeight: "700px"
@@ -30,7 +30,7 @@ function SignUp() {
         <Container id="contacto">
           
         <div className="section section-contact-us text-center">
-          <Container>
+          <Container border={'md'}>
             <h2 className="title">Contactate con nosotros</h2>
             <p className="description">Te enviaremos un mail con información detallada.</p>
             <Row>

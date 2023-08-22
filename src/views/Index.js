@@ -1,11 +1,15 @@
 import React from "react";
-import IndexNavbar from "components/Navbars/IndexNavbar.js";
-import JardinHeader from "components/Headers/JardinHeader.js";
+import NavbarUno from "components/Navbars/JardinNavbar.js";
+import HeaderUno from "components/Headers/HeaderUno.js";
 import JardinDarkFooter from "components/Footers/JardinDarkFooter.js";
 import JardinNavbar from "../components/Navbars/JardinNavbar.js";
-import FotosJardin from "./index-sections/FotosJardin.js";
+import CarruImages from "./index-sections/CarruImages.js";
 import FormularioContacto from "./index-sections/FormularioContacto.js";
 import NosotrosHome from "./index-sections/NosotrosHome.js";
+import CreatedBy from "components/Footers/CreatedBy.js";
+import { Container } from "reactstrap";
+import Images from "./index-sections/Images.js";
+import ActionSection from "./index-sections/ActionSection.js";
 
 function Index() {
   React.useEffect(() => {
@@ -21,16 +25,16 @@ function Index() {
   });
   return (
     <>
-      <JardinNavbar />
+      {/* <NavbarUno /> */}
       <div className="wrapper">
-        <JardinHeader />
+        <HeaderUno />
         <div className="main">
-          <NosotrosHome />
-          <FotosJardin />
+          <ActionSection />
+          <CarruImages />
           <FormularioContacto />
           {/* <Examples />  
-          <Images />
           <BasicElements />
+          <Images />
           <Navbars />
           <Tabs />
           <Pagination />

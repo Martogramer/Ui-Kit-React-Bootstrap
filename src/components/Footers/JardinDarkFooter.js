@@ -3,6 +3,7 @@ import React from "react";
 
 // reactstrap components
 import { Container } from "reactstrap";
+import CreatedBy from "./CreatedBy";
 
 function DarkFooter() {
   return (
@@ -12,22 +13,23 @@ function DarkFooter() {
           <ul>
             <li>
               <a
-                href="/index"
+              className="color"
               >
-                JardínBotánico
+                Tu Tienda Online
               </a>
             </li>
             <li>
               <a
-                href="/landing-page"
+                href="/productos"
               >
-                About Us
+                Productos
               </a>
             </li>
             <li>
               <a
+              href="/"
               >
-                Blog
+                inicio
               </a>
             </li>
           </ul>
@@ -35,11 +37,15 @@ function DarkFooter() {
         <div className="copyright" id="copyright">
           © {new Date().getFullYear()}, Designed by{" "}
           <a
-            href="#"
+            href="httfps://befree.ar"
           >
-            telescopiens
+            befree.ar
           </a>
-          .
+          {" "}&{" "}<a
+            href="https://www.telescopiens.com"
+          >
+            telescópiens
+          </a>
         </div>
       </Container>
     </footer>
