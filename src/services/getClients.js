@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react'
 
-const baseURL = 'https://b-form-production.up.railway.app/'
+const baseURL = 'https://back-ecommerce-351o.onrender.com/api/v1'
 
 export const clientsApi = createApi({
 	reducerPath: 'clientsAPI',

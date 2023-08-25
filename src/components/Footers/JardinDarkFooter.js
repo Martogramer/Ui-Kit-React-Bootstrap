@@ -1,5 +1,6 @@
 /*eslint-disable*/
 import React from "react";
+import './styles.css'
 
 // reactstrap components
 import { Container } from "reactstrap";
@@ -7,13 +8,13 @@ import CreatedBy from "./CreatedBy";
 
 function DarkFooter() {
   return (
-    <footer className="footer" data-background-color="black">
+    <footer className="footer darkfooter">
       <Container>
         <nav>
           <ul>
             <li>
               <a
-              className="color"
+              className=""
               >
                 Tu Tienda Online
               </a>

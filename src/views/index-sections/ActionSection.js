@@ -73,10 +73,10 @@ function ActionSection() {
             </Col>
           </Row> */}
           <Row className="justify-content-md-center sharing-area text-center">
-            <Col className="text-center" lg="8" md="12">
-              <h2>Seguinos en las redes!</h2>
+            <Col className="text-center" lg="8" md="8">
+              <h3>Seguinos en las redes!</h3>
             </Col>
-            <Col className="text-center m-10" lg="8" md="12">
+            <Col className="text-center m-8" lg="8" md="10">
               <Button
                 className="btn-neutral btn-icon btn-round"
                 color="twitter"
@@ -87,7 +87,7 @@ function ActionSection() {
               >
                 <i className="fab fa-twitter"></i>
               </Button>
-              <UncontrolledTooltip delay={0} target="tooltip86114138">
+              <UncontrolledTooltip delay={0.5} target="tooltip86114138">
                 Seguinos en twitter
               </UncontrolledTooltip>
               <Button

@@ -1,13 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom'
-import { user } from './childrenRoutes'
-import Index from 'views/Index'
-import NucleoIcons from "views/NucleoIcons"
-import LoginPage from "views/examples/Contact"
-import LandingPage from "views/examples/JardinLanding"
-import MailingPage from "views/examples/MailingPage"
-import ProfilePage from "views/examples/ProfilePage"
-
+import { auth, user } from './childrenRoutes'
 import UserInterfaces from 'views/layouts/UserInterfaces'
+import AuthInterfaces from 'views/layouts/AuthInterfaces.js'
 
 
 export const router = createBrowserRouter ([
@@ -16,10 +10,11 @@ export const router = createBrowserRouter ([
         element: <UserInterfaces />,
         children: user,
         },
-/*         {
-        path: "/productos",
-        element: <LandingPage />
-        }, */
+        {
+        path: "/login",
+        element: <AuthInterfaces />,
+        children: auth,
+        },
 ])
 
 
