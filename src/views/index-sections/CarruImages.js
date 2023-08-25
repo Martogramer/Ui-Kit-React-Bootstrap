@@ -78,9 +78,9 @@ function CarruImages() {
       <div className="section" id="carousel">
         <Container>
           <div className="title flex flex-col items-center mb-2 justify-center text-center px-4 py-8">
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4">
+            <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4">
               Trabajamos para darle forma a tus ideas.
-            </h2>
+            </h3>
             <h4 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl">
               
             </h4>
@@ -104,7 +104,7 @@ function CarruImages() {
                       onExited={onExited}
                       key={item.src}
                     >
-                      <img src={item.src} alt={item.altText} />
+                      <img src={item.src} alt={item.altText} style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
                       <div className="carousel-caption d-none d-md-block">
                         <h5>{item.caption}</h5>
                       </div>
@@ -114,7 +114,7 @@ function CarruImages() {
                 <a
                   className="carousel-control-prev"
                   data-slide="prev"
-                  href="#pablo"
+                  href="#"
                   onClick={(e) => {
                     e.preventDefault();
                     previous();
@@ -126,7 +126,7 @@ function CarruImages() {
                 <a
                   className="carousel-control-next"
                   data-slide="next"
-                  href="#pablo"
+                  href="#"
                   onClick={(e) => {
                     e.preventDefault();
                     next();

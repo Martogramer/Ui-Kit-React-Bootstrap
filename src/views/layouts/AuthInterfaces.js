@@ -1,5 +1,5 @@
 import React from "react";
-
+import NavbarUno from "components/Navbars/JardinNavbar.js";
 // reactstrap components
 import {
   Button,
@@ -19,10 +19,10 @@ import {
 } from "reactstrap";
 
 // core components
-import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
 import TransparentFooter from "components/Footers/TransparentFooter.js";
+import { Outlet } from "react-router-dom";
 
-function LoginPage() {
+function AuthInterfaces() {
   const [firstFocus, setFirstFocus] = React.useState(false);
   const [lastFocus, setLastFocus] = React.useState(false);
   const [textarea, setTextarea] = React.useState(false);
@@ -39,7 +39,7 @@ function LoginPage() {
   }, []);
   return (
     <>
-      <ExamplesNavbar />
+      < NavbarUno />
       <div className="page-header clear-filter" filter-color="blue">
         <div
           className="page-header-image"
@@ -49,17 +49,7 @@ function LoginPage() {
         ></div>
         <div className="content">
           <Container>
-
-
-
-
-
-
-
-
-
-
-            
+            <Outlet/>
           </Container>
         </div>
         <TransparentFooter />
@@ -68,4 +58,4 @@ function LoginPage() {
   );
 }
 
-export default LoginPage;
+export default AuthInterfaces;

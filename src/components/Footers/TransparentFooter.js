@@ -7,31 +7,28 @@ import { Container } from "reactstrap";
 function TransparentFooter() {
   return (
     <footer className="footer">
-      <Container>
+            <Container>
         <nav>
           <ul>
             <li>
               <a
-                href="https://www.creative-tim.com?ref=nukr-transparent-footer"
-                target="_blank"
+              className=""
               >
-                Creative Tim
+                Tu Tienda Online
               </a>
             </li>
             <li>
               <a
-                href="http://presentation.creative-tim.com?ref=nukr-transparent-footer"
-                target="_blank"
+                href="/productos"
               >
-                About Us
+                Productos
               </a>
             </li>
             <li>
               <a
-                href="http://blog.creative-tim.com?ref=nukr-transparent-footer"
-                target="_blank"
+              href="/"
               >
-                Blog
+                inicio
               </a>
             </li>
           </ul>
@@ -39,19 +36,15 @@ function TransparentFooter() {
         <div className="copyright" id="copyright">
           © {new Date().getFullYear()}, Designed by{" "}
           <a
-            href="https://www.invisionapp.com?ref=nukr-transparent-footer"
-            target="_blank"
+            href="httfps://befree.ar"
           >
-            Invision
+            befree.ar
           </a>
-          . Coded by{" "}
-          <a
-            href="https://www.creative-tim.com?ref=nukr-transparent-footer"
-            target="_blank"
+          {" "}&{" "}<a
+            href="https://www.telescopiens.com"
           >
-            Creative Tim
+            telescópiens
           </a>
-          .
         </div>
       </Container>
     </footer>

@@ -1,0 +1,7 @@
+.darkfooter {
+    background: rgb(206,231,216);
+  background: -moz-linear-gradient(240deg, rgba(206,231,216,1) 6%, rgba(169,131,254,0.9136029411764706) 35%, rgba(153,109,213,1) 77%);
+  background: -webkit-linear-gradient(240deg, rgba(206,231,216,1) 6%, rgba(169,131,254,0.9136029411764706) 35%, rgba(153,109,213,1) 77%);
+  background: linear-gradient(240deg, rgba(206,231,216,1) 6%, rgba(169,131,254,0.9136029411764706) 35%, rgba(153,109,213,1) 77%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#cee7d8",endColorstr="#996dd5",GradientType=1);
+  }

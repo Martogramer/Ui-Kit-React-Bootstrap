@@ -12,7 +12,6 @@ import "assets/demo/nucleo-icons-page-styles.css?v=1.5.0";
 import Index from "views/Index.js";
 import NucleoIcons from "views/NucleoIcons.js";
 import LoginPage from "views/examples/LoginPage.js";
-import Contact from "views/examples/Contact.js";
 import LandingPage from "views/examples/JardinLanding.js";
 import ProfilePage from "views/examples/ProfilePage.js";
 import MailingPage from "views/examples/MailingPage";

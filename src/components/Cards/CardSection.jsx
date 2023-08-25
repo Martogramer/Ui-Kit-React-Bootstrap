@@ -11,7 +11,7 @@ const CardSection = ({ id, imageUrl, description, price, offer, addToCart }) => 
 
   return (
     <Card className="max-w-md rounded overflow-hidden shadow-lg">
-      <CardImg top src={imageUrl} alt="Imagen" className="w-full h-32 object-cover" />
+      <CardImg top src={imageUrl} alt="Imagen" style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
       <CardBody>
         <div className="font-bold text-xl mb-1">Objeto {id}</div>
         <p className="text-gray-700 text-base">{description}</p>
