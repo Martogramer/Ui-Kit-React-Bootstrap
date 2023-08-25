@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 // reactstrap components
 import {
   Button,
@@ -50,7 +50,7 @@ function SignUp() {
                         </InputGroupText>
                       </InputGroupAddon>
                       <Input
-                        placeholder="First Name..."
+                        placeholder="Usuario..."
                         type="text"
                         onFocus={() => setFirstFocus(true)}
                         onBlur={() => setFirstFocus(false)}
@@ -80,22 +80,22 @@ function SignUp() {
                       block
                       className="btn-round"
                       color="info"
-                      href="#pablo"
+                      href="#"
                       onClick={(e) => e.preventDefault()}
                       size="lg"
                     >
-                      Get Started
+                      Ingresar
                     </Button>
                     <div className="pull-left">
-                      <h6>
-                        <a
+                        <Link
                           className="link"
-                          href="#pablo"
+                          to={'registrarse'}
                           onClick={(e) => e.preventDefault()}
                         >
-                          Create Account
-                        </a>
+                      <h6>
+                          Registrarse
                       </h6>
+                        </Link>
                     </div>
                     <div className="pull-right">
                       <h6>
@@ -104,7 +104,7 @@ function SignUp() {
                           href="#pablo"
                           onClick={(e) => e.preventDefault()}
                         >
-                          Need Help?
+                          Recuperar contraseña
                         </a>
                       </h6>
                     </div>

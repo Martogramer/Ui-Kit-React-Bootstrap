@@ -44,7 +44,7 @@ function AuthInterfaces() {
         <div
           className="page-header-image"
           style={{
-            backgroundImage: "url(" + require("assets/img/login.jpg") + ")"
+            backgroundImage: "url(" + require("assets/register.avif") + ")"
           }}
         ></div>
         <div className="content">

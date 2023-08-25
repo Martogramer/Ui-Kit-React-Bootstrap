@@ -32,7 +32,7 @@ export const registerUser = (formData) => async (dispatch) => {
   try {
     dispatch(registerStart());
 
-    const response = await fetch('https://back-ecommerce-351o.onrender.com/api/v1/user/signUp', {
+    const response = await fetch('https://back-ecommerce-351o.onrender.com/api/v1/signUp', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
