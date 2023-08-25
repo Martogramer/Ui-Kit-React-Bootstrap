@@ -21,11 +21,11 @@ export const auth = ([
         element: <SignIn />
     },
     {
-        path: 'signup',
+        path: 'registrarse',
         element: <SignUp />
     },
     {
-        path: 'users',
+        path: 'usuarios',
         element: <Users />
     },
 ])

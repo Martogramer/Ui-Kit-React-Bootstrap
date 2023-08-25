@@ -47,11 +47,11 @@ function Users() {
       <Col className="ml-auto mr-auto" md="4">
         <Card className="card-login card-plain">
           <ListGroup>
-            {users.map((user) => (
+            {/* {users.map((user) => (
               <ListGroupItem key={user.id}>
                 {user}
               </ListGroupItem>
-            ))}
+            ))} */}
             
             {users?.map((i) => (
                 <tr>

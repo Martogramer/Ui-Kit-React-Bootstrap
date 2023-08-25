@@ -25,10 +25,14 @@ import { registerUser } from "services/registerSlice";
 // core components
 
 function SignUp() {
-  const [firstFocus, setFirstFocus] = React.useState(false);
-  const [lastFocus, setLastFocus] = React.useState(false);
+  const [nameFocus, setNameFocus] = React.useState(false);
+  const [usernameFocus, setUsernameFocus] = React.useState(false);
   const [emailFocus, setEmailFocus] = React.useState(false);
+  const [passFocus, setPassFocus] = React.useState(false);
+  const [confirmFocus, setConfirmFocus] = React.useState(false);
   
+  // const {  } = useCreateUserMutation()
+
   const dispatch = useDispatch();
 
   const [username, setUsername] = useState("");
@@ -37,6 +41,7 @@ function SignUp() {
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const [formData, setFormData] = useState({
+    name: "",
     username: "",
     email: "",
     password: "",
@@ -55,15 +60,17 @@ function SignUp() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const { username, email, password, confirmPassword } = formData;
-    if (!username || !email || !password || !confirmPassword) {
+    const { name, username, email, password, confirmPassword } = formData;
+    if (!username || !name || !email || !password || !confirmPassword) {
       console.log("Complete todos los campos");
       console.log({
+        name,
         username,
         email,
         password,
         confirmPassword,
       });
+      console.log(username)
       return;
     }
 
@@ -72,20 +79,22 @@ function SignUp() {
       console.log({
         username,
         email,
+        name,
         password,
         confirmPassword,
       });
       return;
     }
-
-    dispatch(registerUser(formData));
+    
     setFormData({
+      name: "",
       username: "",
       email: "",
       password: "",
       confirmPassword: "",
     });
-
+    dispatch(registerUser(formData));
+    
     /* try {
     const newUser = {
       username,
@@ -106,14 +115,35 @@ function SignUp() {
           <form onSubmit={handleSubmit} className="form">
             <CardHeader className="text-center">
               <div className="logo-container">
-                <img alt="..." src={require("assets/img/now-logo.png")}></img>
+                <img alt="..." src={require("assets/MetaLogo.png")}></img>
               </div>
             </CardHeader>
             <CardBody>
               <InputGroup
                 className={
                   "no-border input-lg" +
-                  (firstFocus ? " input-group-focus" : "")
+                  (nameFocus ? " input-group-focus" : "")
+                }
+              >
+                <InputGroupAddon addonType="prepend">
+                  <InputGroupText>
+                    <i className="now-ui-icons users_circle-08"></i>
+                  </InputGroupText>
+                </InputGroupAddon>
+                <Input
+                  placeholder="Nombre..."
+                  type="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  onFocus={() => setNameFocus(true)}
+                  onBlur={() => setNameFocus(false)}
+                ></Input>
+              </InputGroup>
+              <InputGroup
+                className={
+                  "no-border input-lg" +
+                  (usernameFocus ? " input-group-focus" : "")
                 }
               >
                 <InputGroupAddon addonType="prepend">
@@ -127,14 +157,14 @@ function SignUp() {
                   name="username"
                   value={formData.username}
                   onChange={handleChange}
-                  onFocus={() => setFirstFocus(true)}
-                  onBlur={() => setFirstFocus(false)}
+                  onFocus={() => setUsernameFocus(true)}
+                  onBlur={() => setUsernameFocus(false)}
                 ></Input>
               </InputGroup>
               <InputGroup
                 className={
                   "no-border input-lg" +
-                  (firstFocus ? " input-group-focus" : "")
+                  (emailFocus ? " input-group-focus" : "")
                 }
               >
                 <InputGroupAddon addonType="prepend">
@@ -148,14 +178,14 @@ function SignUp() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  onFocus={() => setFirstFocus(true)}
-                  onBlur={() => setFirstFocus(false)}
+                  onFocus={() => setEmailFocus(true)}
+                  onBlur={() => setEmailFocus(false)}
                 ></Input>
               </InputGroup>
 
               <InputGroup
                 className={
-                  "no-border input-lg" + (lastFocus ? " input-group-focus" : "")
+                  "no-border input-lg" + (passFocus ? " input-group-focus" : "")
                 }
               >
                 <InputGroupAddon addonType="prepend">
@@ -170,13 +200,13 @@ function SignUp() {
                   placeholder="Contraseña"
                   value={formData.password}
                   onChange={handleChange}
-                  onFocus={() => setFirstFocus(true)}
-                  onBlur={() => setFirstFocus(false)}
+                  onFocus={() => setPassFocus(true)}
+                  onBlur={() => setPassFocus(false)}
                 ></Input>
               </InputGroup>
               <InputGroup
                 className={
-                  "no-border input-lg" + (lastFocus ? " input-group-focus" : "")
+                  "no-border input-lg" + (confirmFocus ? " input-group-focus" : "")
                 }
               >
                 <InputGroupAddon addonType="prepend">
@@ -191,8 +221,8 @@ function SignUp() {
                   placeholder="Repetir Contraseña"
                   value={formData.confirmPassword}
                   onChange={handleChange}
-                  onFocus={() => setFirstFocus(true)}
-                  onBlur={() => setFirstFocus(false)}
+                  onFocus={() => setConfirmFocus(true)}
+                  onBlur={() => setConfirmFocus(false)}
                 ></Input>
               </InputGroup>
             </CardBody>
@@ -202,7 +232,6 @@ function SignUp() {
                 className="btn-round"
                 color="info"
                 type="submit"
-                onClick={(e) => e.preventDefault()}
                 size="lg"
               >
                 Registrarse
