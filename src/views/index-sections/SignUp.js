@@ -1,8 +1,7 @@
 import React from "react";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-// reactstrap components
 import {
   Button,
   Card,
@@ -19,10 +18,10 @@ import {
   Container,
   Row,
 } from "reactstrap";
+import { useSignUpMutation } from "services/authApi";
 import { useCreateUserMutation } from "services/authApi";
 import { registerUser } from "services/registerSlice";
-
-// core components
+import { selectRegister } from "store/store";
 
 function SignUp() {
   const [nameFocus, setNameFocus] = React.useState(false);
@@ -30,23 +29,17 @@ function SignUp() {
   const [emailFocus, setEmailFocus] = React.useState(false);
   const [passFocus, setPassFocus] = React.useState(false);
   const [confirmFocus, setConfirmFocus] = React.useState(false);
-  
-  // const {  } = useCreateUserMutation()
-
   const dispatch = useDispatch();
-
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-
+  const [createUser, { isError, isLoading, data }] = useCreateUserMutation();
+  const [signUp] = useSignUpMutation();
   const [formData, setFormData] = useState({
     name: "",
     username: "",
     email: "",
     password: "",
-    confirmPassword: "",
+    confirPassword: "",
   });
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevFormData) => ({
@@ -55,58 +48,41 @@ function SignUp() {
     }));
   };
 
-/* 
-  const [createUser, { isLoading }] = useCreateUserMutation(); */
-
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const { name, username, email, password, confirmPassword } = formData;
-    if (!username || !name || !email || !password || !confirmPassword) {
+    const { name, username, email, password, confirPassword } = formData;
+    if (!username || !name || !email || !password || !confirPassword) {
       console.log("Complete todos los campos");
       console.log({
         name,
         username,
         email,
         password,
-        confirmPassword,
+        confirPassword,
       });
       console.log(username)
       return;
     }
 
-    if (password !== confirmPassword) {
+    if (password !== confirPassword) {
       console.log("Las contraseñas no coinciden");
       console.log({
         username,
         email,
         name,
         password,
-        confirmPassword,
+        confirPassword,
       });
       return;
     }
-    
-    setFormData({
-      name: "",
-      username: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
-    });
-    dispatch(registerUser(formData));
-    
-    /* try {
-    const newUser = {
-      username,
-      email,
-      password,
-      confirmPassword,
+
+    try {
+      createUser(formData)
+      console.log("Usuario creado exitosamente:");
+    } catch (err) {
+      console.error("Error al crear el usuario", err);
     }
-    const response = await createUser(newUser);
-    console.log(response.data);
-    } catch (error) {
-      console.log("Error", error?.response?.data || "Something went wrong");
-    } */
+    
   };
   return (
     <>
@@ -216,10 +192,10 @@ function SignUp() {
                 </InputGroupAddon>
                 <Input
                   type="password"
-                  name="confirmPassword"
-                  id="confirmPassword"
+                  name="confirPassword"
+                  id="confirPassword"
                   placeholder="Repetir Contraseña"
-                  value={formData.confirmPassword}
+                  value={formData.confirPassword}
                   onChange={handleChange}
                   onFocus={() => setConfirmFocus(true)}
                   onBlur={() => setConfirmFocus(false)}
@@ -227,15 +203,14 @@ function SignUp() {
               </InputGroup>
             </CardBody>
             <CardFooter className="text-center">
-              <Button
-                block
-                className="btn-round"
-                color="info"
-                type="submit"
-                size="lg"
-              >
-                Registrarse
-              </Button>
+            {isLoading ? (
+          <span>Cargando...</span>
+        ) : (
+          <Button block className="btn-round" color="info" type="submit" size="lg">
+            Registrarse
+          </Button>
+        )}
+        {isError && <div>Error: {isError.message}</div>}
               <div className="pull-left">
                 <h6>
                   <a
@@ -258,6 +233,7 @@ function SignUp() {
                   </a>
                 </h6>
               </div>
+              {data && <div>Sign up successful</div>}
             </CardFooter>
           </form>
         </Card>
