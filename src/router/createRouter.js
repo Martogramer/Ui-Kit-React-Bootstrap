@@ -1,7 +1,8 @@
 import { createBrowserRouter } from 'react-router-dom'
-import { auth, user } from './childrenRoutes'
+import { admin, auth, user } from './childrenRoutes'
 import UserInterfaces from 'views/layouts/UserInterfaces'
 import AuthInterfaces from 'views/layouts/AuthInterfaces.js'
+import AdminInterfaces from 'views/layouts/AdminInterfaces'
 
 
 export const router = createBrowserRouter ([
@@ -14,6 +15,11 @@ export const router = createBrowserRouter ([
         path: "/auth",
         element: <AuthInterfaces />,
         children: auth,
+        },
+        {
+        path: "/admin",
+        element: <AdminInterfaces />,
+        children: admin,
         },
 ])
 
