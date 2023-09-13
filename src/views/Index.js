@@ -1,8 +1,6 @@
 import React from "react";
-import NavbarUno from "components/Navbars/JardinNavbar.js";
 import HeaderUno from "components/Headers/HeaderUno.js";
 import JardinDarkFooter from "components/Footers/JardinDarkFooter.js";
-import JardinNavbar from "../components/Navbars/JardinNavbar.js";
 import CarruImages from "./index-sections/CarruImages.js";
 import FormularioContacto from "./index-sections/FormularioContacto.js";
 import NosotrosHome from "./index-sections/NosotrosHome.js";
@@ -25,7 +23,6 @@ function Index() {
   });
   return (
     <>
-      {/* <NavbarUno /> */}
       <div className="wrapper">
         <HeaderUno />
         <div className="main">

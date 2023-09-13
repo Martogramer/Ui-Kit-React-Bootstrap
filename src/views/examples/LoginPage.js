@@ -100,7 +100,7 @@ function LoginPage() {
                       block
                       className="btn-round"
                       color="info"
-                      href="#pablo"
+                      href="#"
                       onClick={(e) => e.preventDefault()}
                       size="lg"
                     >
@@ -110,7 +110,7 @@ function LoginPage() {
                       <h6>
                         <a
                           className="link"
-                          href="#pablo"
+                          href="#"
                           onClick={(e) => e.preventDefault()}
                         >
                           Create Account
@@ -121,7 +121,7 @@ function LoginPage() {
                       <h6>
                         <a
                           className="link"
-                          href="#pablo"
+                          href="#"
                           onClick={(e) => e.preventDefault()}
                         >
                           Need Help?

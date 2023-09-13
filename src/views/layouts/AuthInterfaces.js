@@ -1,5 +1,5 @@
 import React from "react";
-import NavbarUno from "components/Navbars/JardinNavbar.js";
+import AdminNavbar from "components/Navbars/AdminNavbar.js";
 // reactstrap components
 import {
   Button,
@@ -39,7 +39,7 @@ function AuthInterfaces() {
   }, []);
   return (
     <>
-      < NavbarUno />
+      <AdminNavbar />
       <div className="page-header clear-filter" filter-color="blue">
         <div
           className="page-header-image"

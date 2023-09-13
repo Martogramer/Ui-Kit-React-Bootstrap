@@ -1,5 +1,5 @@
 import React from 'react'
-import NavbarUno from "components/Navbars/JardinNavbar.js";
+import AdminNavbar from "components/Navbars/AdminNavbar.js";
 import { Outlet } from 'react-router-dom';
 import { Container } from 'reactstrap';
 import TransparentFooter from 'components/Footers/TransparentFooter';
@@ -8,7 +8,7 @@ import TransparentFooter from 'components/Footers/TransparentFooter';
 const AdminInterfaces = () => {
   return (
     <>
-      <NavbarUno />
+      <AdminNavbar />
       <div className="page-header clear-filter" filter-color="blue">
         <div
           className="page-header-image"
