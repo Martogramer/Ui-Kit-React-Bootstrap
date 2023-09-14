@@ -1,9 +1,13 @@
+import { Carousel } from "reactstrap";
 import Index from "views/Index";
+import HomeIndex from "views/examples/pruebaIndex";
 import LandingPage from "views/examples/JardinLanding";
 import CreateProduct from "views/index-sections/CreateProduct";
 import SignIn from "views/index-sections/SignIn";
 import SignUp from "views/index-sections/SignUp";
 import Users from "views/index-sections/Users";
+import Productos from "views/examples/Productos";
+import PanelCrud from "views/examples/PanelCrud";
 
 export const user = ([
     {
@@ -11,8 +15,12 @@ export const user = ([
         element: <Index />
     },
     {
-        path: 'productos',
+        path: 'prueba',
         element: <LandingPage />
+    },
+    {
+        path: 'productos',
+        element: <Productos />
     },
 ])
 
@@ -31,13 +39,13 @@ export const auth = ([
     },
 ])
 export const admin = ([
+   /*  {
+        path: '',
+        element: <HomeIndex />
+    }, */
     {
         path: '',
-        element: <Users />
-    },
-    {
-        path: 'crear',
-        element: <CreateProduct />
+        element: <PanelCrud />
     },
     {
         path: 'usuarios',

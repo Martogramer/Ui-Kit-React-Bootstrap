@@ -1,12 +1,12 @@
 import React from 'react'
-import NavbarUno from "components/Navbars/JardinNavbar.js";
+import UserNavbar from "components/Navbars/UserNavbar.js";
 import { Outlet } from 'react-router-dom';
 
 
 const UserInterfaces = () => {
   return (
     <>
-        <NavbarUno />
+        <UserNavbar />
         <Outlet />
     </>
   ) 

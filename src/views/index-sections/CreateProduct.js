@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useGetAllProductsQuery, useCreateProductMutation, useUpdateProductMutation, useDeleteProductMutation } from '../../services/productsApi';
+import { Input, Table } from 'reactstrap';
 
 function CreateProduct() {
   const { data: products, isLoading, isError } = useGetAllProductsQuery();
@@ -27,9 +28,9 @@ function CreateProduct() {
     deleteProduct.mutate(id);
   };
 
-  if (isLoading) {
+ /*  if (isLoading) {
     return <div>Loading...</div>;
-  }
+  } */
 
   if (isError) {
     return <div>Error occurred while fetching products.</div>;
@@ -40,31 +41,31 @@ function CreateProduct() {
       <h1>Product CRUD</h1>
 
       <h2>Create Product</h2>
-      <input
+      <Input
         type="text"
         placeholder="Name"
         value={newProduct.name || ''}
         onChange={(e) => setNewProduct({ ...newProduct, name: e.target.value })}
       />
-      <input
+      <Input
         type="text"
         placeholder="Description"
         value={newProduct.description || ''}
         onChange={(e) => setNewProduct({ ...newProduct, description: e.target.value })}
       />
-      <input
+      <Input
         type="number"
         placeholder="Price"
         value={newProduct.price || ''}
         onChange={(e) => setNewProduct({ ...newProduct, price: Number(e.target.value) })}
       />
-      <input
+      <Input
         type="number"
         placeholder="Stock"
         value={newProduct.stock || ''}
         onChange={(e) => setNewProduct({ ...newProduct, stock: Number(e.target.value) })}
       />
-      <input
+      <Input
         type="text"
         placeholder="Category"
         value={newProduct.category || ''}
@@ -73,17 +74,36 @@ function CreateProduct() {
       <button onClick={handleCreateProduct}>Create</button>
 
       <h2>Product List</h2>
-      {products.map((product) => (
-        <div key={product.id}>
-          <h3>{product.name}</h3>
-          <p>{product.description}</p>
-          <p>Price: ${product.price}</p>
-          <p>Stock: {product.stock}</p>
-          <p>Category: {product.category}</p>
+      
+      <Table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Descripción</th>
+      <th>Precio</th>
+      <th>Stock</th>
+      <th>Categoría</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {products?.map((product) => (
+      <tr key={product.id}>
+        <td>{product.name}</td>
+        <td>{product.description}</td>
+        <td>${product.price}</td>
+        <td>{product.stock}</td>
+        <td>{product.category}</td>
+        <td>
           <button onClick={() => handleUpdateProduct(product.id, { name: 'Updated Name' })}>Update</button>
           <button onClick={() => handleDeleteProduct(product.id)}>Delete</button>
-        </div>
-      ))}
+        </td>
+      </tr>
+    ))}
+  </tbody>
+</Table>
+
+
     </div>
   );
 }

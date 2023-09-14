@@ -32,7 +32,13 @@ const items = [
   },
 ];
 
-function CarouselSection() {
+const ImgStyle = {
+  maxWidth: "100%",
+  maxHeight: "100%",
+  objectFit: "cover",
+}
+
+function CarouselDos() {
   const [activeIndex, setActiveIndex] = React.useState(0);
   const [animating, setAnimating] = React.useState(false);
   const onExiting = () => {
@@ -70,7 +76,7 @@ function CarouselSection() {
               onExited={onExited}
               key={item.src}
             >
-              <img src={item.src} alt={item.altText} />
+              <img style={ImgStyle} src={item.src} alt={item.altText} />
               <Container>
                 <div className="content-center brand">
                   <div className="carousel-caption d-none content-center d-md-block">
@@ -116,4 +122,4 @@ function CarouselSection() {
   );
 }
 
-export default CarouselSection;
+export default CarouselDos;

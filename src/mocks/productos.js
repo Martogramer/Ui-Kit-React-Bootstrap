@@ -53,6 +53,15 @@ const productos = [
       image: 'https://images.unsplash.com/photo-1617607105491-803197e3cf05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=436&q=80',
       endDate: '2023-09-05', // YYYY-MM-DD format
     },
+    {
+      id: 7,
+      name: 'Wireless Speakers',
+      description: 'Portable wireless speakers for high-quality audio.',
+      price: 149.99,
+      discount: 15,
+      image: 'https://images.unsplash.com/photo-1617607105491-803197e3cf05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=436&q=80',
+      endDate: '2023-09-05', // YYYY-MM-DD format
+    },
   ];
 
   export default productos

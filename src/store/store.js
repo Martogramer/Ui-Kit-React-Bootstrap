@@ -5,7 +5,7 @@ import { authApi, signUpApi } from "../services/authApi";
 import registerSlice from "services/registerSlice";
 import { getUsersAPI } from "services/getUsers";
 import { userApi } from "services/getUsers";
-import { productsApi } from "services/productsApi";
+import { productsApi } from "../services/productsApi";
 
 
 export const store = configureStore({

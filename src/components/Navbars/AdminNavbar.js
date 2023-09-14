@@ -15,7 +15,7 @@ import {
   UncontrolledTooltip,
 } from "reactstrap";
 
-function IndexNavbar() {
+function UserNavbar() {
   const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
   const [collapseOpen, setCollapseOpen] = React.useState(false);
   React.useEffect(() => {
@@ -55,7 +55,7 @@ function IndexNavbar() {
               href="/"
               id="navbar-brand"
             >
-              Tu Tienda Online
+              Panel de Administrador
             </NavbarBrand>
             <UncontrolledTooltip target="#navbar-brand">
               Ganá presencia en la web!
@@ -82,11 +82,11 @@ function IndexNavbar() {
             <Nav navbar>
               <NavItem>
                 <NavLink
-                  href="#contacto"
+                  href="/"
                   
                 >
                   <i className="now-ui-icons arrows-1_cloud-download-93"></i>
-                  <p>Contacto</p>
+                  <p>Inicio</p>
                 </NavLink>
               </NavItem>
               <UncontrolledDropdown nav>
@@ -98,20 +98,19 @@ function IndexNavbar() {
                   onClick={(e) => e.preventDefault()}
                 >
                   <i className="now-ui-icons design_app mr-1"></i>
-                  <p>Productos</p>
+                  <p>Gestionar</p>
                 </DropdownToggle>
                 <DropdownMenu>
-                  <DropdownItem to="/" tag={Link}>
-                    Software
+                  <DropdownItem to="" tag={Link}>
+                    Nuevo producto
                   </DropdownItem>
-                  <DropdownItem to="/" tag={Link}>
+                  <DropdownItem to="" tag={Link}>
                     Diseño
                   </DropdownItem>
-                  <DropdownItem
-                    to="/"
-                    target="_blank"
+                  <DropdownItem tag={Link}
+                    to="usuarios"
                   >
-                    CM
+                    estadisticas
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
@@ -153,7 +152,7 @@ function IndexNavbar() {
                   <p className="d-lg-none d-xl-none">Facebook</p>
                 </NavLink>
                 <UncontrolledTooltip target="#facebook-tooltip">
-                  Seguinos en Facebook
+                  Facebook
                 </UncontrolledTooltip>
               </NavItem>
               <NavItem>
@@ -166,7 +165,7 @@ function IndexNavbar() {
                   <p className="d-lg-none d-xl-none">Instagram</p>
                 </NavLink>
                 <UncontrolledTooltip target="#instagram-tooltip">
-                  Seguinos en Instagram
+                  Instagram
                 </UncontrolledTooltip>
               </NavItem>
             </Nav>
@@ -177,4 +176,4 @@ function IndexNavbar() {
   );
 }
 
-export default IndexNavbar;
+export default UserNavbar;
