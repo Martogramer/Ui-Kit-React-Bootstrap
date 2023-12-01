@@ -4,16 +4,25 @@ import ProductList from "./crud/ProductList";
 import ProductCreate from "./crud/ProductCreate";
 import ProductUpdate from "./crud/ProductUpdate";
 import ProductDelete from "./crud/ProductDelete";
+import './style.css';
 
 function PanelCrud() {
   return (
-    <Container>
-      <h1>Panel</h1>
-      <ProductList />
-      <ProductCreate />
-      {/* <ProductUpdate _id={1} />  */}
-      {/* <ProductDelete _id={1} /> */}
-    </Container>
+    <>
+    <div className="container">
+      <div className="panel">
+        <h1>Panel</h1>
+      </div>
+      <div className="sub-panels">
+        <div className="sub-panel">
+          <ProductList />
+        </div>
+        <div className="sub-panel">
+          <ProductCreate />
+        </div>
+      </div>
+    </div>
+    </>
   );
 }
 

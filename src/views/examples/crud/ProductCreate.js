@@ -18,19 +18,20 @@ function ProductCreate() {
 
   const [formData, setFormData] = useState({
     name: "",
-    description: "",
     price: 0,
-    discount: 0,
-    image: "",
-    endDate: "",
+    stock: 0,
+    description: "",
+    category: "",
   });
+
+  const [createProduct, { isLoading, isError }] = useCreateProductMutation()
+
   const [formErrors, setFormErrors] = useState({
     name: "",
     description: "",
-    price: "",
-    discount: "",
-    image: "",
-    endDate: "",
+    price: 0,
+    stock: 0,
+    category: "",
   })
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -50,14 +51,13 @@ function ProductCreate() {
 
   const handleCreateProduct = async () => {
     try {
-      await dispatch(createProduct(formData)); 
+      const newProduct = await createProduct(formData); 
       setFormData({
         name: "",
-        description: "",
         price: 0,
-        discount: 0,
-        image: "",
-        endDate: "",
+        stock: 0,
+        description: "",
+        category: "",
       });
       console.log(formData);
       alert("Producto creado con éxito");
@@ -70,7 +70,7 @@ function ProductCreate() {
   return (
     <div>
       <h1>Crear Producto</h1>
-      <form onSubmit={() => handleCreateProduct}>
+      <form onSubmit={handleCreateProduct}>
         <InputGroup
           className={
             "no-border input-lg" + (lastFocus ? " input-group-focus" : "")
@@ -89,17 +89,6 @@ function ProductCreate() {
             {formErrors.name && <p className="error-message"> {formErrors.name} </p>}
           </div>
           <div>
-            <label>Descripción:</label>
-            <Input
-              type="text"
-              name="description"
-              value={formData.description}
-              onChange={handleInputChange}
-              onFocus={() => setFirstFocus(true)}
-              onBlur={() => setFirstFocus(false)}
-            />
-          </div>
-          <div>
             <label>Precio:</label>
             <Input
               type="number"
@@ -111,28 +100,39 @@ function ProductCreate() {
             />
           </div>
           <div>
-            <label>Descuento:</label>
+            <label>Stock:</label>
             <Input
               type="number"
-              name="discount"
-              value={formData.discount}
+              name="stock"
+              value={formData.stock}
               onChange={handleInputChange}
               onFocus={() => setFirstFocus(true)}
               onBlur={() => setFirstFocus(false)}
             />
           </div>
           <div>
-            <label>Imagen:</label>
+            <label>Descripción:</label>
             <Input
               type="text"
-              name="image"
-              value={formData.image}
+              name="description"
+              value={formData.description}
               onChange={handleInputChange}
               onFocus={() => setFirstFocus(true)}
               onBlur={() => setFirstFocus(false)}
             />
           </div>
           <div>
+            <label>Category:</label>
+            <Input
+              type="text"
+              name="category"
+              value={formData.category}
+              onChange={handleInputChange}
+              onFocus={() => setFirstFocus(true)}
+              onBlur={() => setFirstFocus(false)}
+            />
+          </div>
+          {/* <div>
             <label>Oferta válida hasta:</label>
             <Input
               type="date"
@@ -142,15 +142,13 @@ function ProductCreate() {
               onFocus={() => setFirstFocus(true)}
               onBlur={() => setFirstFocus(false)}
             />
-          </div>
+          </div> */}
         </InputGroup>
         {/* Agregar más campos de formulario aquí según sea necesario */}
-        <Button 
-          color="green" 
-          type="submit"
-          >
-            Crear
-            </Button>
+        <Button color="green" type="submit" disabled={isLoading}>
+          {isLoading ? "Creando..." : "Crear"}
+        </Button>
+        {isError && <p>Error al crear el producto</p>}
       </form>
     </div>
   );
