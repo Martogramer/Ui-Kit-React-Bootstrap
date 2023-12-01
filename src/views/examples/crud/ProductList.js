@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Spinner, Table } from "reactstrap";
 import {
   useDeleteProductMutation,
@@ -7,13 +7,21 @@ import {
   useGetAllProductsQuery,
 } from "../../../services/productsApi";
 import { useAllProducts } from "../../../services/hooks/useProducts";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllProducts } from "services/slices/productSlice";
 
 function ProductList() {
   const { data, isLoading } = useGetAllProductsQuery();
-  const products = useAllProducts();
+  //const products = useAllProducts();
+  const products = useSelector((state) => state.products)
+  const dispatch = useDispatch()
   const { createProduct } = useCreateProductMutation();
   const { updateProduct } = useUpdateProductMutation();
   const { deleteProduct } = useDeleteProductMutation();
+
+  useEffect(() => {
+    dispatch(getAllProducts());
+  }, [dispatch]);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -53,9 +61,9 @@ function ProductList() {
     <div>
       <h1>Listado de Productos</h1>
 
-      {isLoading ? (
+      {/* {loading ? (
         <Spinner color="primary" />
-      ) : (
+      ) : ( */}
         <Table>
           <thead>
             <tr>
@@ -93,7 +101,7 @@ function ProductList() {
             ))}
           </tbody>
         </Table>
-      )}
+      {/* )} */}
     </div>
   );
 }

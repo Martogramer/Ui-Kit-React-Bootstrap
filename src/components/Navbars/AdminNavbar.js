@@ -81,13 +81,13 @@ function UserNavbar() {
           >
             <Nav navbar>
               <NavItem>
-                <NavLink
-                  href="/"
+                <Link
+                  to="/"
                   
                 >
                   <i className="now-ui-icons arrows-1_cloud-download-93"></i>
                   <p>Inicio</p>
-                </NavLink>
+                </Link>
               </NavItem>
               <UncontrolledDropdown nav>
                 <DropdownToggle

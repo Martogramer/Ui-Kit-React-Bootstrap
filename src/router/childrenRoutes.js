@@ -16,7 +16,7 @@ export const user = ([
     },
     {
         path: 'prueba',
-        element: <LandingPage />
+        element: <HomeIndex />
     },
     {
         path: 'productos',
