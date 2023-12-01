@@ -5,6 +5,8 @@ import FormularioContacto from "../index-sections/FormularioContacto";
 import JardinDefaultFooter from "components/Footers/JardinDefaultFooter.js";
 import CardSection from "components/Cards/CardSection";
 import productos from "mocks/productos";
+import { useAllProducts } from "services/hooks/useProducts";
+import { useGetAllProductsQuery } from "services/productsApi";
 
 function Productos() {
   useEffect(() => {
@@ -19,6 +21,7 @@ function Productos() {
     };
   }, []);
 
+  const { data, isLoading } = useGetAllProductsQuery();
   const [cartItems, setCartItems] = useState([]);
   const [cartVisible, setCartVisible] = useState(false);
 
@@ -53,12 +56,11 @@ function Productos() {
             <div className="separator separator-primary"></div>
               <Container>
                 <Row>
-                  {productos?.map((producto) => (
+                  {data?.map((producto) => (
                     <Col key={producto.id} md="4">
                       <CardSection
                         imageUrl={producto.image}
                         description={producto.description}
-                        offer={producto.discount}
                         price={producto.price}
                         addToCart={() => addToCart(producto)}
                       />

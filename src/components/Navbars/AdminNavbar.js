@@ -55,7 +55,7 @@ function UserNavbar() {
               href="/"
               id="navbar-brand"
             >
-              Panel de Administrador
+              Tu Tienda Online
             </NavbarBrand>
             <UncontrolledTooltip target="#navbar-brand">
               Ganá presencia en la web!
@@ -81,13 +81,13 @@ function UserNavbar() {
           >
             <Nav navbar>
               <NavItem>
-                <Link
-                  to="/"
+                <NavLink
+                  href="#contacto"
                   
                 >
                   <i className="now-ui-icons arrows-1_cloud-download-93"></i>
-                  <p>Inicio</p>
-                </Link>
+                  <p>Contacto</p>
+                </NavLink>
               </NavItem>
               <UncontrolledDropdown nav>
                 <DropdownToggle
@@ -98,19 +98,20 @@ function UserNavbar() {
                   onClick={(e) => e.preventDefault()}
                 >
                   <i className="now-ui-icons design_app mr-1"></i>
-                  <p>Gestionar</p>
+                  <p>Productos</p>
                 </DropdownToggle>
                 <DropdownMenu>
-                  <DropdownItem to="" tag={Link}>
-                    Nuevo producto
+                  <DropdownItem to="/" tag={Link}>
+                    Software
                   </DropdownItem>
-                  <DropdownItem to="" tag={Link}>
+                  <DropdownItem to="/" tag={Link}>
                     Diseño
                   </DropdownItem>
-                  <DropdownItem tag={Link}
-                    to="usuarios"
+                  <DropdownItem
+                    to="/"
+                    target="_blank"
                   >
-                    estadisticas
+                    CM
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
@@ -152,7 +153,7 @@ function UserNavbar() {
                   <p className="d-lg-none d-xl-none">Facebook</p>
                 </NavLink>
                 <UncontrolledTooltip target="#facebook-tooltip">
-                  Facebook
+                  Seguinos en Facebook
                 </UncontrolledTooltip>
               </NavItem>
               <NavItem>
@@ -165,7 +166,7 @@ function UserNavbar() {
                   <p className="d-lg-none d-xl-none">Instagram</p>
                 </NavLink>
                 <UncontrolledTooltip target="#instagram-tooltip">
-                  Instagram
+                  Seguinos en Instagram
                 </UncontrolledTooltip>
               </NavItem>
             </Nav>

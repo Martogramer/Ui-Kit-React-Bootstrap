@@ -15,10 +15,6 @@ export const user = ([
         element: <Index />
     },
     {
-        path: 'prueba',
-        element: <HomeIndex />
-    },
-    {
         path: 'productos',
         element: <Productos />
     },
@@ -39,10 +35,6 @@ export const auth = ([
     },
 ])
 export const admin = ([
-   /*  {
-        path: '',
-        element: <HomeIndex />
-    }, */
     {
         path: '',
         element: <PanelCrud />
