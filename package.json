@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
+    "@vercel/analytics": "^1.0.2",
     "axios": "^1.4.0",
     "gulp": "^4.0.2",
     "gulp-append-prepend": "1.0.9",

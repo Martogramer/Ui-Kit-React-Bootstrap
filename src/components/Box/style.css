@@ -1,0 +1,51 @@
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  -webkit-overflow-scrolling: touch; /* Para mejorar el desplazamiento en dispositivos móviles */
+  scrollbar-width: none; /* Para ocultar la barra de desplazamiento */
+  -ms-overflow-style: none;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none; /* Oculta la barra de desplazamiento en navegadores webkit */
+}
+
+.box {
+  width: 400px;
+  height: 300px;
+  display: flex;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  scroll-snap-align: start;
+  margin-right: 10px; /* Espacio entre las cajas */
+}
+.boxe {
+  width: 400px;
+  margin-right: 10px; /* Espacio entre las cajas */
+}
+
+.box h3 {
+  margin-top: 0;
+  font-size: 20px;
+}
+
+.box p {
+  font-size: 16px;
+  color: #333;
+}
+
+.box a {
+  display: block;
+  margin-top: 10px;
+  text-decoration: none;
+  color: #007bff;
+}
+
+.box a:hover {
+  text-decoration: underline;
+}

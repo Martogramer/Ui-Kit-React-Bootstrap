@@ -4,10 +4,17 @@ import JardinDarkFooter from "components/Footers/JardinDarkFooter.js";
 import CarruImages from "./index-sections/CarruImages.js";
 import FormularioContacto from "./index-sections/FormularioContacto.js";
 import NosotrosHome from "./index-sections/NosotrosHome.js";
+import CarouselDos from "views/index-sections/CarouselDos.js";
 import CreatedBy from "components/Footers/CreatedBy.js";
 import { Container } from "reactstrap";
 import Images from "./index-sections/Images.js";
 import ActionSection from "./index-sections/ActionSection.js";
+import BasicElements from "./index-sections/BasicElements.js";
+import Javascript from "./index-sections/Javascript.js";
+import Tabs from "./index-sections/Tabs.js";
+import NucleoIcons from "./NucleoIcons.js";
+import { LogosClientes } from "components/Logos/LogosClientes.js";
+import { BoxCarousell } from "components/Box/BoxCarousell.js";
 
 function Index() {
   React.useEffect(() => {
@@ -27,19 +34,9 @@ function Index() {
         <HeaderUno />
         <div className="main">
           <ActionSection />
-          <CarruImages />
-          <FormularioContacto />
-          {/* <Examples />  
-          <BasicElements />
-          <Images />
-          <Navbars />
-          <Tabs />
-          <Pagination />
-          <Notifications />
-          <Typography />
-          <Javascript />
-          <NucleoIcons /> 
-          <CompleteExamples /> */}
+          <CarouselDos />
+          <BoxCarousell />
+          <LogosClientes />
         </div>
         <JardinDarkFooter />
       </div>

@@ -1,0 +1,31 @@
+.icons-carousel {
+    max-width: 80%; /* Ajusta el ancho del carrusel */
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .icons-list {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .icons-list li {
+    padding: 10px;
+    display: inline-block;
+    font-size: 24px;
+    color: #333;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  /* Si quieres agregar un efecto de hover */
+  .icons-list li:hover {
+    transform: scale(1.2);
+  }

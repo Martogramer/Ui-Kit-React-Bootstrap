@@ -36,11 +36,11 @@ function HeaderUno() {
         ></div>
         <Container>
           <div className="content-center brand">
-            {/* <img
+            <img
               alt="..."
               className=" logo-jardin"
               src={require("assets/img/casual.png")}
-            ></img> */}
+            ></img>
             <h1 className="h1-seo"> Agosto % Off </h1>
             <h5>Registrate y recibí ofertas esclusivas!</h5>
             <Link to={"productos"}>
