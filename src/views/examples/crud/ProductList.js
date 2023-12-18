@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Spinner, Table } from "reactstrap";
+import { Button, Spinner, Table, Row, Col } from "reactstrap";
 import {
   useDeleteProductMutation,
   useUpdateProductMutation,
@@ -13,8 +13,8 @@ import { getAllProducts } from "services/slices/productSlice";
 function ProductList() {
   const { data, isLoading } = useGetAllProductsQuery();
   //const products = useAllProducts();
-  const products = useSelector((state) => state.products)
-  const dispatch = useDispatch()
+  const products = useSelector((state) => state.products);
+  const dispatch = useDispatch();
   const { createProduct } = useCreateProductMutation();
   const { updateProduct } = useUpdateProductMutation();
   const { deleteProduct } = useDeleteProductMutation();
@@ -58,20 +58,30 @@ function ProductList() {
   };
 
   return (
-    <div>
-      <h1>Listado de Productos</h1>
+    <div className="container">
+      <Row style={{ marginBottom: '10px' }} >
+    <Col>
+    </Col>
+    <Col>
+    </Col>
+    <Col>
+    </Col>
+    <Col>
+      <Button href='admin/crear' color="success" className="">Nuevo</Button>
+    </Col>
+      </Row>
 
-      {/* {loading ? (
+      {isLoading ? (
         <Spinner color="primary" />
-      ) : ( */}
+      ) : (
         <Table>
           <thead>
             <tr>
               <th>Nombre</th>
-              <th>Descripción</th>
               <th>Precio</th>
               <th>Stock</th>
-              <th>Categoría</th>
+              <th></th>
+              <th></th>
               <th>Acciones</th>
             </tr>
           </thead>
@@ -79,7 +89,6 @@ function ProductList() {
             {data?.map((product) => (
               <tr key={product.id}>
                 <td>{product.name}</td>
-                <td>{product.description}</td>
                 <td>${product.price}</td>
                 <td>{product.stock}</td>
                 <td>{product.category}</td>
@@ -91,17 +100,19 @@ function ProductList() {
                       })
                     }
                   >
-                    Update
+                    Modificar
                   </Button>
+                </td>
+                <td>
                   <Button onClick={() => handleDeleteProduct(product.id)}>
-                    Delete
+                    Eliminar
                   </Button>
                 </td>
               </tr>
             ))}
           </tbody>
         </Table>
-      {/* )} */}
+      )}
     </div>
   );
 }

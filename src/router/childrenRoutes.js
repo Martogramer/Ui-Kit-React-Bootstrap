@@ -8,6 +8,9 @@ import SignUp from "views/index-sections/SignUp";
 import Users from "views/index-sections/Users";
 import Productos from "views/examples/Productos";
 import PanelCrud from "views/examples/PanelCrud";
+import ProfilePage from "views/examples/ProfilePage";
+import ProductCreate from "views/examples/crud/ProductCreate";
+import ProductList from "views/examples/crud/ProductList";
 
 export const user = ([
     {
@@ -37,10 +40,10 @@ export const auth = ([
 export const admin = ([
     {
         path: '',
-        element: <PanelCrud />
+        element: <ProductList />
     },
     {
-        path: 'usuarios',
-        element: <Users />
+        path: 'crear',
+        element: <ProductCreate />
     },
 ])

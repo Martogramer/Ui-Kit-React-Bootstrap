@@ -13,11 +13,10 @@ function ActionSection() {
           <Row className="justify-content-md-center">
             <Col className="text-center" lg="8" md="12">
               <h2 className="title">
-                Soluciones que se ajustan a tus necesidades.
+              Bienvenido a FYM - Donde las Historias Cobran Vida
               </h2>
               <h5 className="description">
-                Encontrá entre nuestros productos una solución hecha a tu
-                medida.
+              En FYM somos mucho más que una agencia audiovisual; somos contadores de historias, capturadores de momentos y creadores de memorias eternas. 💫
               </h5>
             </Col>
             <Col className="text-center" lg="8" md="12">
@@ -43,53 +42,8 @@ function ActionSection() {
               </Button>
             </Col>
           </Row>
-          {/* <Row className="text-center mt-5">
-            <Col className="ml-auto mr-auto" md="8">
-              <h2>Want more?</h2>
-              <h5 className="description">
-                We're going to launch{" "}
-                <a
-                  href="http://demos.creative-tim.com/now-ui-kit-pro-react/#/presentation?ref=nukr-index-page"
-                  onClick={(e) => e.preventDefault()}
-                >
-                  Now UI Kit PRO React
-                </a>
-                . It will have huge number of components, sections and example
-                pages so you can start your development with a badass Bootstrap
-                4 UI Kit.
-              </h5>
-            </Col>
-            <Col md="12">
-              <Button
-                className="btn-neutral btn-round"
-                color="default"
-                href="http://creative-tim.com/product/now-ui-kit-pro-react?ref=nukr-index-page"
-                size="lg"
-                target="_blank"
-              >
-                <i className="now-ui-icons arrows-1_share-66 mr-1"></i>
-                Upgrade to PRO
-              </Button>
-            </Col>
-          </Row> */}
           <Row className="justify-content-md-center sharing-area text-center">
-            <Col className="text-center" lg="8" md="8">
-              <h3>Seguinos en las redes!</h3>
-            </Col>
             <Col className="text-center m-8" lg="8" md="10">
-              <Button
-                className="btn-neutral btn-icon btn-round"
-                color="twitter"
-                href="#"
-                id="tooltip86114138"
-                size="lg"
-                target="_blank"
-              >
-                <i className="fab fa-twitter"></i>
-              </Button>
-              <UncontrolledTooltip delay={0.5} target="tooltip86114138">
-                Seguinos en twitter
-              </UncontrolledTooltip>
               <Button
                 className="btn-neutral btn-icon btn-round"
                 color="facebook"

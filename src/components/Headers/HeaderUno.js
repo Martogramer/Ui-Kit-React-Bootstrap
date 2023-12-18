@@ -1,19 +1,16 @@
-/*eslint-disable*/
 import React from "react";
-
-// reactstrap components
 import { Button, Container } from "reactstrap";
-// core components
 import "./style.css";
 import CreatedBy from "components/Footers/CreatedBy";
 import { Link } from "react-router-dom";
+
 function HeaderUno() {
   let pageHeader = React.createRef();
 
   React.useEffect(() => {
     if (window.innerWidth > 991) {
       const updateScroll = () => {
-        let windowScrollTop = window.pageYOffset / 3;
+        let windowScrollTop = window.scrollY / 3;
         pageHeader.current.style.transform =
           "translate3d(0," + windowScrollTop + "px,0)";
       };
@@ -23,37 +20,31 @@ function HeaderUno() {
       };
     }
   });
-
   return (
-    <>
-      <div className="page-header clear-filter" filter-color="black">
-        <div
-          className="page-header-image"
-          style={{
-            backgroundImage: "url(" + require("assets/home.avif") + ")",
-          }}
-          ref={pageHeader}
-        ></div>
-        <Container>
-          <div className="content-center brand">
-            <img
-              alt="..."
-              className=" logo-jardin"
-              src={require("assets/img/casual.png")}
-            ></img>
-            <h1 className="h1-seo"> Agosto % Off </h1>
-            <h5>Registrate y recibí ofertas esclusivas!</h5>
-            <Link to={"productos"}>
-              <Button className="btn-neutral btn-round" color="default">
-                Ver Productos
-              </Button>
-            </Link>
-          </div>
+    <div className="page-header-small page-header clear-filter" filter-color="black">
+      <div className="page-header-image h-50" ref={pageHeader}>
 
-          <CreatedBy />
-        </Container>
+      <video autoPlay muted loop>
+        <source src={require("assets/bandeja.mp4")} type="video/mp4" />
+        Tu navegador no admite la reproducción de videos.
+      </video>
       </div>
-    </>
+      <Container fluid className="h-100">
+        <div className="d-flex flex-column justify-content-center align-items-center h-100">
+          <img
+            alt="..."
+            className="logo-jardin"
+            src={require("assets/img/casual.png")}
+          />
+          <h1 className="h1-seo"> Diciembre % Off </h1>
+          <Link to={"productos"}>
+            <Button className="btn-neutral btn-round" color="default">
+              Ver Productos
+            </Button>
+          </Link>
+        </div>
+      </Container>
+    </div>
   );
 }
 
