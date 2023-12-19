@@ -59,7 +59,7 @@ function Productos() {
                   {data?.map((producto) => (
                     <Col key={producto.id} md="4">
                       <CardSection
-                        imageUrl={producto.image}
+                        imageUrl={'https://photos.google.com/photo/AF1QipN1e0OZUh3I0WDi3YHVqEuKowu40vntlhfuqFrY'}
                         description={producto.description}
                         price={producto.price}
                         addToCart={() => addToCart(producto)}

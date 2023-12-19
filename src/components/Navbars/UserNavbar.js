@@ -48,17 +48,17 @@ function UserNavbar() {
           }}
         />
       ) : null}
-      <Navbar className={"fixed-top " + navbarColor} expand="lg" color="info">
+      <Navbar className={"fixed-top " + navbarColor} expand="lg" color="dark">
         <Container>
           <div className="navbar-translate">
             <NavbarBrand
               href="/"
               id="navbar-brand"
             >
-              Tu Tienda Online
+              fym imagenes
             </NavbarBrand>
             <UncontrolledTooltip target="#navbar-brand">
-              Ganá presencia en la web!
+            🎥 📸
             </UncontrolledTooltip>
             <button
               className="navbar-toggler navbar-toggler"
@@ -145,7 +145,7 @@ function UserNavbar() {
               </NavItem> */}
               <NavItem>
                 <NavLink
-                  href="#"
+                  href="https://www.facebook.com/people/FyM-Imagenes/100063872263136/"
                   target="_blank"
                   id="facebook-tooltip"
                 >
@@ -158,7 +158,7 @@ function UserNavbar() {
               </NavItem>
               <NavItem>
                 <NavLink
-                  href="#"
+                  href="https://www.instagram.com/fymimagenes.oficial/"
                   target="_blank"
                   id="instagram-tooltip"
                 >

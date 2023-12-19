@@ -1,10 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Route, Switch, Redirecta, RouterProvider } from "react-router-dom";
-import { Provider } from 'react-redux';
-import { store } from './store/store';
+import {
+  BrowserRouter,
+  Route,
+  Switch,
+  Redirecta,
+  RouterProvider,
+} from "react-router-dom";
+import { Provider } from "react-redux";
+import { store } from "./store/store";
 
-import { router } from './router/createRouter';
+import { router } from "./router/createRouter";
 import "assets/css/bootstrap.min.css";
 import "assets/scss/now-ui-kit.scss?v=1.5.0";
 import "assets/demo/demo.css?v=1.5.0";
@@ -19,7 +25,7 @@ import MailingPage from "views/examples/MailingPage";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
-     <Provider store={store}>
-      <RouterProvider router={router}/>
-    </Provider> 
+  <Provider store={store}>
+    <RouterProvider router={router} />
+  </Provider>
 );

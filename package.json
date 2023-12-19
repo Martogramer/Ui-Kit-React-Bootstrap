@@ -6,6 +6,7 @@
     "@reduxjs/toolkit": "^1.9.5",
     "@vercel/analytics": "^1.0.2",
     "axios": "^1.4.0",
+    "firebase": "^10.7.1",
     "gulp": "^4.0.2",
     "gulp-append-prepend": "1.0.9",
     "moment": "2.29.4",

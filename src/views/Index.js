@@ -1,20 +1,11 @@
 import React from "react";
 import HeaderUno from "components/Headers/HeaderUno.js";
-import JardinDarkFooter from "components/Footers/JardinDarkFooter.js";
-import CarruImages from "./index-sections/CarruImages.js";
-import FormularioContacto from "./index-sections/FormularioContacto.js";
-import NosotrosHome from "./index-sections/NosotrosHome.js";
 import CarouselDos from "views/index-sections/CarouselDos.js";
-import CreatedBy from "components/Footers/CreatedBy.js";
-import { Container } from "reactstrap";
-import Images from "./index-sections/Images.js";
 import ActionSection from "./index-sections/ActionSection.js";
-import BasicElements from "./index-sections/BasicElements.js";
-import Javascript from "./index-sections/Javascript.js";
-import Tabs from "./index-sections/Tabs.js";
-import NucleoIcons from "./NucleoIcons.js";
 import { LogosClientes } from "components/Logos/LogosClientes.js";
 import { BoxCarousell } from "components/Box/BoxCarousell.js";
+import VideoSection from "../components/Sections/VideoSection.js";
+import AboutSection from "./index-sections/AboutSection.js";
 
 function Index() {
   React.useEffect(() => {
@@ -30,16 +21,13 @@ function Index() {
   });
   return (
     <>
-      <div className="wrapper">
-        <HeaderUno />
-        <div className="main">
-          <ActionSection />
-          <CarouselDos />
-          <BoxCarousell />
-          <LogosClientes />
-        </div>
-        <JardinDarkFooter />
-      </div>
+      <HeaderUno />
+      <ActionSection />
+      <VideoSection />
+      <AboutSection />
+      <CarouselDos />
+      <BoxCarousell />
+      <LogosClientes />
     </>
   );
 }

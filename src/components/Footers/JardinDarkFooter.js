@@ -1,6 +1,6 @@
 /*eslint-disable*/
 import React from "react";
-import './styles.css'
+import "./styles.css";
 
 // reactstrap components
 import { Container } from "reactstrap";
@@ -13,40 +13,30 @@ function DarkFooter() {
         <nav>
           <ul>
             <li>
-              <a
-              className=""
-              >
-                Tu Tienda Online
-              </a>
+              <a className="">Tu Tienda Online</a>
             </li>
             <li>
-              <a
-                href="/productos"
-              >
-                Productos
-              </a>
+              <a href="/productos">Productos</a>
             </li>
             <li>
-              <a
-              href="/"
-              >
-                inicio
-              </a>
+              <a href="/">inicio</a>
             </li>
           </ul>
         </nav>
         <div className="copyright" id="copyright">
           © {new Date().getFullYear()}, Designed by{" "}
-          <a
-            href="httfps://befree.ar"
-          >
-            befree.ar
-          </a>
-          {" "}&{" "}<a
-            href="https://www.telescopiens.com"
-          >
-            telescópiens
-          </a>
+          <img
+            alt="..."
+            className="teles-logo"
+            src={require("assets/MetaLogo.png")}
+          ></img>{" "}
+          <a href="httfps://befree.ar">befree.ar</a> &{" "}
+          <img
+            alt="..."
+            className="teles-logo"
+            src={require("assets/img/vytuzp.jpg")}
+          ></img>{" "}
+          <a href="https://www.telescopiens.com">telescópiens</a>
         </div>
       </Container>
     </footer>

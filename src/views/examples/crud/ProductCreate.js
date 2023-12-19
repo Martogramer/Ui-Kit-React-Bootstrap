@@ -3,18 +3,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { Button, Input, InputGroup, Spinner } from "reactstrap";
 import { useCreateProductMutation } from "services/productsApi";
 import { getAllProducts, createProduct } from "services/slices/productSlice";
+import { storage } from "services/firebaseConfig";
 
 function ProductCreate() {
   const [firstFocus, setFirstFocus] = React.useState(false);
   const [lastFocus, setLastFocus] = React.useState(false);
 
-  const products = useSelector((state) => state.products)
-  const dispatch = useDispatch()
+  const products = useSelector((state) => state.products);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllProducts())
+    dispatch(getAllProducts());
   }, [dispatch]);
-
 
   const [formData, setFormData] = useState({
     name: "",
@@ -22,9 +22,10 @@ function ProductCreate() {
     stock: 0,
     description: "",
     category: "",
+    image: null,
   });
 
-  const [createProduct, { isLoading, isError }] = useCreateProductMutation()
+  const [createProduct, { isLoading, isError }] = useCreateProductMutation();
 
   const [formErrors, setFormErrors] = useState({
     name: "",
@@ -32,16 +33,19 @@ function ProductCreate() {
     price: 0,
     stock: 0,
     category: "",
-  })
+  });
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    if (name === "name" && value.trim() === "" ){
-      setFormErrors((prevState)=> ({...prevState,[name]: 'Name is required'}))
+    if (name === "name" && value.trim() === "") {
+      setFormErrors((prevState) => ({
+        ...prevState,
+        [name]: "Name is required",
+      }));
     } else {
       setFormErrors((prevErrors) => ({
         ...prevErrors,
         name: "",
-      }))
+      }));
     }
     setFormData((prevData) => ({
       ...prevData,
@@ -49,15 +53,35 @@ function ProductCreate() {
     }));
   };
 
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    setFormData((prevData) => ({
+      ...prevData,
+      image: file,
+    }));
+  };
+
   const handleCreateProduct = async () => {
     try {
-      const newProduct = await createProduct(formData); 
+      let imageUrl = "";
+
+      if (formData.image) {
+        imageUrl = await uploadImage(formData.image); // Sube la imagen a Firebase
+      }
+
+      const newProductData = {
+        ...formData,
+        imageUrl,
+      };
+
+      const newProduct = await createProduct(newProductData);
       setFormData({
         name: "",
         price: 0,
         stock: 0,
         description: "",
         category: "",
+        image: null,
       });
       console.log(formData);
       alert("Producto creado con éxito");
@@ -65,6 +89,13 @@ function ProductCreate() {
       console.log(error.message);
       alert("Error al crear el producto:", error.message);
     }
+  };
+
+  const uploadImage = async (file) => {
+    const storageRef = storage.ref(storage);
+    const fileRef = storageRef.child(file.name);
+    await fileRef.put(file);
+    return fileRef.getDownloadURL();
   };
 
   return (
@@ -76,7 +107,7 @@ function ProductCreate() {
             "no-border input-lg" + (lastFocus ? " input-group-focus" : "")
           }
         >
-          <div>
+          <div className="container">
             <label>Nombre:</label>
             <Input
               type="text"
@@ -86,9 +117,9 @@ function ProductCreate() {
               onFocus={() => setFirstFocus(true)}
               onBlur={() => setFirstFocus(false)}
             />
-            {formErrors.name && <p className="error-message"> {formErrors.name} </p>}
-          </div>
-          <div>
+            {formErrors.name && (
+              <p className="error-message"> {formErrors.name} </p>
+            )}
             <label>Precio:</label>
             <Input
               type="number"
@@ -98,8 +129,6 @@ function ProductCreate() {
               onFocus={() => setFirstFocus(true)}
               onBlur={() => setFirstFocus(false)}
             />
-          </div>
-          <div>
             <label>Stock:</label>
             <Input
               type="number"
@@ -109,8 +138,6 @@ function ProductCreate() {
               onFocus={() => setFirstFocus(true)}
               onBlur={() => setFirstFocus(false)}
             />
-          </div>
-          <div>
             <label>Descripción:</label>
             <Input
               type="text"
@@ -120,8 +147,6 @@ function ProductCreate() {
               onFocus={() => setFirstFocus(true)}
               onBlur={() => setFirstFocus(false)}
             />
-          </div>
-          <div>
             <label>Category:</label>
             <Input
               type="text"
@@ -130,7 +155,9 @@ function ProductCreate() {
               onChange={handleInputChange}
               onFocus={() => setFirstFocus(true)}
               onBlur={() => setFirstFocus(false)}
-            />
+              />
+            <label>Imagen:</label>
+            <Input type="file" accept="image/*" onChange={handleFileChange} />
           </div>
           {/* <div>
             <label>Oferta válida hasta:</label>
